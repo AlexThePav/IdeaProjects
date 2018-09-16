@@ -27,3 +27,9 @@ odd = [1, 3, 5, 7, 9]
 
 numbers = [even, odd]
 print(numbers)
+
+for number_set in numbers:
+    print(number_set)
+
+    for value in number_set:
+        print(value)
