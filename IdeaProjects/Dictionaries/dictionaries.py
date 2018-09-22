@@ -15,7 +15,7 @@ fruit = {"orange": "a sweet orange citrus fruit",
 # del(fruit["lemon"])
 # fruit.clear()
 # print(fruit)
-print(fruit)
+# print(fruit)
 
 # while True:
 #     dict_key = input("Please enter a fruit: ")
