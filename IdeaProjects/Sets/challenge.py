@@ -19,4 +19,5 @@ text = input("Please enter some text: ")
 
 vowels = frozenset("aeiouAEIOU")
 finalSet = set(text).difference(vowels)
-print(", ".join(finalSet))
+sortedFinalList = sorted(finalSet)
+print(", ".join(sortedFinalList))
