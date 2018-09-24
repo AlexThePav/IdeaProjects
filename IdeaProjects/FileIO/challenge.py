@@ -18,8 +18,8 @@
 # 12 times 2 is 24
 # ----------------
 
-with open("sample.txt", "w") as jabber_file:
+with open("sample.txt", "a") as jabber_file:
     for x in range(1, 13):
         for y in range(1, 13):
-            print("{:<} times {:<} is {:<}".format(y, x, x*y), file=jabber_file)
+            print("{:>2} times {} is {}".format(y, x, x*y), file=jabber_file)
         print("="*20, file=jabber_file)
