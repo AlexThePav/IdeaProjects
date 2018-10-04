@@ -36,10 +36,8 @@ fileList['yscrollcommand'] = listScroll.set
 # frame for the radio buttons
 optionFrame = tkinter.LabelFrame(mainWindow, text="File Details")
 optionFrame.grid(row=1, column=2, sticky="ne")
-
 rbValue = tkinter.IntVar()
 rbValue.set(1)
-
 # Radio buttons
 radio1 = tkinter.Radiobutton(optionFrame, text="Filename", value=1, variable=rbValue)
 radio2 = tkinter.Radiobutton(optionFrame, text="Path", value=2, variable=rbValue)
