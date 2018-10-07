@@ -5,24 +5,28 @@ except ImportError: # python2
 
 import os
 
+# Main window
 mainWindow = tkinter.Tk()
 mainWindow.title("Grid Demo")
 mainWindow.geometry('640x480+2885-200')
+mainWindow['padx'] = 8
 
 label = tkinter.Label(mainWindow, text="Tkinter Grid Demo")
 label.grid(row=0, column=0, columnspan=3)
 
-mainWindow.columnconfigure(0, weight=1)
+# Weights
+mainWindow.columnconfigure(0, weight=100)
 mainWindow.columnconfigure(1, weight=1)
-mainWindow.columnconfigure(2, weight=3)
-mainWindow.columnconfigure(3, weight=3)
-mainWindow.columnconfigure(4, weight=3)
+mainWindow.columnconfigure(2, weight=1000)
+mainWindow.columnconfigure(3, weight=600)
+mainWindow.columnconfigure(4, weight=1000)
 mainWindow.rowconfigure(0, weight=1)
 mainWindow.rowconfigure(1, weight=10)
 mainWindow.rowconfigure(2, weight=1)
 mainWindow.rowconfigure(3, weight=3)
 mainWindow.rowconfigure(4, weight=3)
 
+# File List
 fileList = tkinter.Listbox(mainWindow)
 fileList.grid(row=1, column=0, sticky='nsew', rowspan=2)
 fileList.config(border=2, relief='sunken')
@@ -33,7 +37,7 @@ listScroll = tkinter.Scrollbar(mainWindow, orient=tkinter.VERTICAL, command=file
 listScroll.grid(row=1, column=1, sticky='nsw', rowspan=2)
 fileList['yscrollcommand'] = listScroll.set
 
-# frame for the radio buttons
+# Frame for the radio buttons
 optionFrame = tkinter.LabelFrame(mainWindow, text="File Details")
 optionFrame.grid(row=1, column=2, sticky="ne")
 rbValue = tkinter.IntVar()
@@ -86,6 +90,11 @@ daySpin.grid(row=1, column=0)
 monthSpin.grid(row=1, column=1)
 yearSpin.grid(row=1, column=2)
 
+# Buttons
+okButton = tkinter.Button(mainWindow, text="OK")
+cancelButton = tkinter.Button(mainWindow, text="Cancel", command=mainWindow.destroy)
+okButton.grid(row=4, column=3, sticky='e')
+cancelButton.grid(row=4, column=4, sticky='w')
 
 
 mainWindow.mainloop()
