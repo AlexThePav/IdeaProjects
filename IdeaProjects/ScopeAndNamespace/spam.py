@@ -19,3 +19,5 @@ def spam1():
     return x
 
 print(spam1())
+print(locals())
+print(globals())
