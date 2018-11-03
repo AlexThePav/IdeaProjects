@@ -25,7 +25,8 @@ print("Models: {} = {}, {} = {}".format(kenwood.make, kenwood.price, hamilton.ma
 print("Models: {0.make} = {0.price}, {1.make} = {1.price}".format(kenwood, hamilton))
 
 """
-Class: template for creating objects. All objects created using the same class will have the same characteristics.
+Class: template for creating objects. All objects created using the same class
+ will have the same characteristics.
 Object: an instance of a class.
 Instantiate: create an instance of a class.
 Method: a function defined in a class.
@@ -45,6 +46,14 @@ print("*" * 80)
 kenwood.power = 1.5
 print(kenwood.power)
 # print(hamilton.power)
+
+print("Switch to atomic power")
+Kettle.power_source = "atomic"
 print(Kettle.power_source)
+print("Switch kenwood to gas")
+kenwood.power_source = "gas"
 print(kenwood.power_source)
 print(hamilton.power_source)
+print(Kettle.__dict__)
+print(kenwood.__dict__)
+print(hamilton.__dict__)
