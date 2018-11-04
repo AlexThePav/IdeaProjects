@@ -11,27 +11,28 @@ class Account:
         return pytz.utc.localize(utc_time)
 
     def __init__(self, name, balance):
-        self.name = name
-        self.balance = balance
-        self.transaction_list = []
-        print("Account created for " + self.name)
+        self._name = name
+        self._balance = balance
+        self.transaction_list = [(Account._current_time(), balance)]
+        self.show_balance()
+        print("Account created for " + self._name)
 
     def deposit(self, amount):
         if amount > 0:
-            self.balance += amount
+            self._balance += amount
             self.show_balance()
             self.transaction_list.append((Account._current_time(), amount))
 
     def withdraw(self, amount):
-        if 0 < amount <= self.balance:
-            self.balance -= amount
+        if 0 < amount <= self._balance:
+            self._balance -= amount
             self.transaction_list.append((Account._current_time(), -amount))
         else:
             print("""The amount must be greater than zero and no more than your account balance""")
         self.show_balance()
 
     def show_balance(self):
-        print("Balance is {}".format(self.balance))
+        print("Balance is {}".format(self._balance))
 
     def show_transactions(self):
         for date, amount in self.transaction_list:
@@ -54,3 +55,8 @@ if __name__ == '__main__':
 
     pav.withdraw(2000)
     pav.show_transactions()
+
+    steph = Account("Steph", 800)
+    steph.deposit(100)
+    steph.withdraw(200)
+    steph.show_transactions()
