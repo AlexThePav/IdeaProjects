@@ -93,7 +93,6 @@ def initial_deal():
     deal_player()
 
 
-
 def new_game():
     global dealer_card_frame
     global player_card_frame
