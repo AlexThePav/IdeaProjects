@@ -12,30 +12,29 @@ class Account:
 
     def __init__(self, name, balance):
         self._name = name
-        self._balance = balance
-        self.transaction_list = [(Account._current_time(), balance)]
-        self.show_balance()
+        self.__balance = balance
+        self._transaction_list = [(Account._current_time(), balance)]
         print("Account created for " + self._name)
 
     def deposit(self, amount):
         if amount > 0:
-            self._balance += amount
+            self.__balance += amount
             self.show_balance()
-            self.transaction_list.append((Account._current_time(), amount))
+            self._transaction_list.append((Account._current_time(), amount))
 
     def withdraw(self, amount):
-        if 0 < amount <= self._balance:
-            self._balance -= amount
-            self.transaction_list.append((Account._current_time(), -amount))
+        if 0 < amount <= self.__balance:
+            self.__balance -= amount
+            self._transaction_list.append((Account._current_time(), -amount))
         else:
             print("""The amount must be greater than zero and no more than your account balance""")
         self.show_balance()
 
     def show_balance(self):
-        print("Balance is {}".format(self._balance))
+        print("Balance is {}".format(self.__balance))
 
     def show_transactions(self):
-        for date, amount in self.transaction_list:
+        for date, amount in self._transaction_list:
             if amount > 0:
                 tran_type = "deposited"
             else:
@@ -57,6 +56,11 @@ if __name__ == '__main__':
     pav.show_transactions()
 
     steph = Account("Steph", 800)
+    steph.__balance = 200
     steph.deposit(100)
     steph.withdraw(200)
     steph.show_transactions()
+    steph.show_balance()
+    print(steph.__dict__)
+    steph._Account__balance = 40
+    steph.show_balance()
