@@ -3,8 +3,8 @@ class Song:
 
     Attributes:
         title (str): The title of the song
-        artist (Artist): An artist object representing the song's creator
-        duration (int): The duration of the song in seconds. May be zero
+        artist (Artist): An artist object representing the songs creator.
+        duration (int): The duration of the song in seconds.  May be zero
     """
 
     def __init__(self, title, artist, duration=0):
@@ -14,19 +14,18 @@ class Song:
 
 
 class Album:
-    """ Class to represent an Album, using its track list
+    """ Class to represent an Album, using it's track list
 
     Attributes:
-        name (str): The name of the album
-        year (int): The year the album was released
-        artist (Artist): The artist responsible for the album.
-            If not specified, the artist will default to an artist with the name
-            "Various Artists"
-        tracks (List[Song]): A list of the songs on the album.
+        name (str): The name of the album.
+        year (int): The year was album was released.
+        artist: (Artist): The artist responsible for the album. If not specified,
+        the artist will default to an artist with the name "Various Artists".
+        tracks (List[Song]):  A list of the songs on the album.
 
     Methods:
         add_song: Used to add a new song to the album's track list.
-        """
+    """
 
     def __init__(self, name, year, artist=None):
         self.name = name
@@ -35,6 +34,7 @@ class Album:
             self.artist = Artist("Various Artists")
         else:
             self.artist = artist
+
         self.tracks = []
 
     def add_song(self, song, position=None):
@@ -62,7 +62,7 @@ class Artist:
             not an exhaustive list of the artist's published albums.
 
     Methods:
-        add_album: Used to add a new album to the artist's albums list
+        add_album: Use to add a new album to the artist's albums list
     """
 
     def __init__(self, name):
@@ -70,11 +70,11 @@ class Artist:
         self.albums = []
 
     def add_album(self, album):
-        """Add a new album to the list
+        """Add a new album to the list.
 
         Args:
-            album (Album): Album object ot add to the list.
-                If the album is already present, it will not be added again (although this is yet to be implemented)
+            album (Album): Album object to add to the list.
+                If the album is already present, it will not added again (although this is yet to implemented).
         """
         self.albums.append(album)
 
@@ -117,8 +117,8 @@ def load_data():
                 new_artist.add_album(new_album)
             elif new_album.name != album_field:
                 # We've just read a new album for the current artist
-                # retrieve the object artist if there is one,
-                # otherwise create a new album object and store it in the artist list.
+                # Retrieve the album object if there is one,
+                # otherwise create a new album object and store it in the artist's collection.
                 new_album = find_object(album_field, new_artist.albums)
                 if new_album is None:
                     new_album = Album(album_field, year_field, new_artist)
@@ -137,7 +137,8 @@ def create_checkfile(artist_list):
         for new_artist in artist_list:
             for new_album in new_artist.albums:
                 for new_song in new_album.tracks:
-                    print("{0.name}\t{1.name}\t{1.year}\t{2.title}".format(new_artist, new_album, new_song), file=checkfile)
+                    print("{0.name}\t{1.name}\t{1.year}\t{2.title}".format(new_artist, new_album, new_song),
+                        file=checkfile)
 
 
 if __name__ == '__main__':
@@ -145,3 +146,39 @@ if __name__ == '__main__':
     print("There are {} artists".format(len(artists)))
 
     create_checkfile(artists)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
