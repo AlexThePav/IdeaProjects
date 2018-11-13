@@ -1,29 +1,26 @@
-from player import Player
+from enemy import Troll, Vampyre
 
-pav = Player("Pav")
+ugly_troll = Troll("Pug")
+print("Ugly troll - {}".format(ugly_troll))
 
-print(pav.name)
-print(pav.lives)
-pav.lives -= 1
-print(pav)
+another_troll = Troll("Ug")
+print("Another troll - {}".format(another_troll))
 
-pav.lives -= 1
-print(pav)
+brother = Troll("Urg")
+print(brother)
 
-pav.lives -= 1
-print(pav)
+vlad = Vampyre("Vlad")
+print(vlad)
 
-pav.level += 3
-print(pav)
+ugly_troll.grunt()
+another_troll.grunt()
+brother.grunt()
+brother.take_damage(2)
 
-pav.level -= 1
-print(pav)
+print("=" * 40)
+another_troll.take_damage(30)
+print(another_troll)
 
-pav.level -= 1
-print(pav)
-
-pav.level -= 1
-print(pav)
-
-pav.level -= 1
-print(pav)
+while vlad.alive:
+    vlad.take_damage(1)
+    print(vlad)
