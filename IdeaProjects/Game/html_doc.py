@@ -82,5 +82,5 @@ if __name__ == "__main__":
     new_header = Head('Aggregation document')
     my_page = HtmlDoc(new_docType, new_header, new_body)
 
-    with open('test3.html', 'w') as test_doc:
+    with open('test2.html', 'w') as test_doc:
         my_page.display(file=test_doc)
